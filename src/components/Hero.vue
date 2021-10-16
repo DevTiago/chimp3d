@@ -53,4 +53,18 @@ export default {
     }
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .main-text {
+    padding: 100px 0;
+
+    h2 {
+      font-size: 75px;
+    }
+
+    .v-scrollin {
+      font-size: 23px;
+    }
+  }
+}
 </style>

@@ -10,24 +10,26 @@
             Desde a consultoria de projeto até a fabricação, nós ajudamo-lo.
           </p>
         </div>
-        <div class="services-container row mt-4">
-          <div class="col-12 col-sm-4 col-lg-2">
-            <i class="fas fa-cube"></i>Impressão 3D
-          </div>
-          <div class="col-12 col-sm-4 col-lg-2">
-            <i class="fab fa-buromobelexperte"></i>Modelação 3D
-          </div>
-          <div class="col-12 col-sm-4 col-lg-2">
-            <i class="fas fa-atom"></i>Prototipagem
-          </div>
-          <div class="col-12 col-sm-4 col-lg-2">
-            <i class="fas fa-bolt"></i>Eletrónica
-          </div>
-          <div class="col-12 col-sm-4 col-lg-2">
-            <i class="fab fa-product-hunt"></i>Merchandising
-          </div>
-          <div class="col-12 col-sm-4s col-lg-2">
-            <i class="fas fa-tape"></i>Consumíveis
+        <div class="services-container mt-4">
+          <div class="row">
+            <div class="col-12 col-sm-4 col-lg-2">
+              <i class="fas fa-cube"></i>Impressão 3D
+            </div>
+            <div class="col-12 col-sm-4 col-lg-2">
+              <i class="fab fa-buromobelexperte"></i>Modelação 3D
+            </div>
+            <div class="col-12 col-sm-4 col-lg-2">
+              <i class="fas fa-atom"></i>Prototipagem
+            </div>
+            <div class="col-12 col-sm-4 col-lg-2">
+              <i class="fas fa-bolt"></i>Eletrónica
+            </div>
+            <div class="col-12 col-sm-4 col-lg-2">
+              <i class="fab fa-product-hunt"></i>Merchandising
+            </div>
+            <div class="col-12 col-sm-4s col-lg-2">
+              <i class="fas fa-tape"></i>Consumíveis
+            </div>
           </div>
         </div>
       </div>
@@ -43,7 +45,7 @@ export default {};
 
 <style lang="scss" scoped>
 #services {
-  background-color: #090c02;
+  background-color: #232323;
   padding: 100px;
   h2 {
     color: #bbc5aa;
@@ -64,10 +66,12 @@ export default {};
     transition: all 0.2s ease-in-out;
   }
 
-  div:hover {
-    background-color: #fff;
-    color: #000;
-    cursor: default;
+  .row {
+    div:hover {
+      background-color: #fff;
+      color: #232323;
+      cursor: default;
+    }
   }
 }
 

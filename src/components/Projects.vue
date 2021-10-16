@@ -64,6 +64,7 @@ h2 {
   font-size: 36px;
   font-weight: bold;
   padding-bottom: 30px;
+  color: #232323;
 }
 
 #projects {
