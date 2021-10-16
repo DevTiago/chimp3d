@@ -75,6 +75,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.navbar {
+  background-color: #090c02;
+}
 #brand-name {
   color: white;
 }
