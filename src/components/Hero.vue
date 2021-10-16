@@ -1,6 +1,5 @@
 <template>
   <div id="hero-component">
-    <img src="../assets/hero2.jpg" alt="" />
     <div class="main-text container position-relative">
       <h2>
         Chimp3d
@@ -25,18 +24,9 @@ export default {
 
 <style lang="scss" scoped>
 #hero-component {
-  width: 100%;
-  height: 98vh;
+  background-image: url("../assets/geometric.jpg");
+  background-size: cover;
 }
-
-img {
-  position: absolute;
-  width: 100%;
-  max-height: 100%;
-  display: block;
-  transform: scaleX(-1);
-}
-
 .main-text {
   padding: 200px 0;
   color: #fff;
@@ -47,6 +37,20 @@ img {
 
   .v-scrollin {
     font-size: 55px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .main-text {
+    padding: 100px 0;
+
+    h2 {
+      font-size: 92px;
+    }
+
+    .v-scrollin {
+      font-size: 23px;
+    }
   }
 }
 </style>
