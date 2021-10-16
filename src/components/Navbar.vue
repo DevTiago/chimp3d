@@ -32,11 +32,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
+            <a class="nav-link" href="#services">Serviços</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Projetos</a>
+            <a class="nav-link" href="#projects">Projetos</a>
           </li>
 
           <li class="nav-item">
