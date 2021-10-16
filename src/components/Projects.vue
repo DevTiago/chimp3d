@@ -73,6 +73,7 @@ h2 {
 
 .card {
   margin: 15px;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
