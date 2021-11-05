@@ -204,6 +204,7 @@
   import Brand from "../components/brand/Brand";
   import Footer from "../components/footer/Footer";
 
+  
   export default {
     components: {
       Header,
