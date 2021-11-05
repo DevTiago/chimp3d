@@ -7,8 +7,11 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "ansi-regex": ">=5.0.1",
     "core-js": "^3.6.5",
     "feather-icons": "^4.28.0",
+    "nth-check": ">=2.0.1",
+    "set-value": ">=4.0.1",
     "vee-validate": "^3.4.5",
     "vue": "^2.6.11",
     "vue-cool-lightbox": "^2.7.0",
@@ -18,10 +21,7 @@
     "vue-scrollactive": "^0.9.3",
     "vue-slick-carousel": "^1.0.6",
     "vue-visibility-sensor": "^0.3.0",
-    "vuetify": "^2.2.11",
-    "nth-check": ">=2.0.1",
-    "ansi-regex": ">=5.0.1",
-    "set-value": ">=4.0.1"
+    "vuetify": "^2.2.11"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
