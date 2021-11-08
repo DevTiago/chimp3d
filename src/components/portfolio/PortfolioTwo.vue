@@ -23,11 +23,6 @@
               <div class="content">
                 <div class="inner">
                   <div class="portfolio_heading">
-                    <div class="category_list">
-                      <router-link to="/portfolio-details">{{
-                        item.category
-                      }}</router-link>
-                    </div>
                     <h4 class="heading-title">
                       <router-link to="/portfolio-details">{{
                         item.title
@@ -53,88 +48,82 @@
 </template>
 
 <script>
-  import VueSlickCarousel from "vue-slick-carousel";
-  export default {
-    components: {
-      VueSlickCarousel,
-    },
-    data() {
-      return {
-        portfolioContent: [
+import VueSlickCarousel from "vue-slick-carousel";
+export default {
+  components: {
+    VueSlickCarousel,
+  },
+  data() {
+    return {
+      portfolioContent: [
+        {
+          src: require("../../assets/images/work/elite_table.png"),
+          title: "Logo empresarial",
+          description:
+            "Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.",
+        },
+        {
+          src: require("../../assets/images/work/jarra.png"),
+          title: "Jarra",
+          description:
+            "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
+        },
+        {
+          src: require("../../assets/images/work/lamp.png"),
+          title: "Candeeiro personalizado",
+          description:
+            "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
+        },
+        {
+          src: require("../../assets/images/work/scooter_grip_lock.png"),
+          title: "Scooter grip lock",
+          description:
+            "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
+        },
+        {
+          src: require("../../assets/images/portfolio/portfolio-6.jpg"),
+          title: "Imagem default",
+          description: "Tamanho recomendado para imagem do portfolio",
+        },
+      ],
+      // for all works
+      settings: {
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        spaceBetween: 15,
+
+        responsive: [
           {
-            src: require("../../assets/images/portfolio/portfolio-8.jpg"),
-            category: "Development",
-            title: "Web Design",
-            description:
-              "Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.",
+            breakpoint: 890,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
           },
           {
-            src: require("../../assets/images/portfolio/portfolio-9.jpg"),
-            category: "Product Design",
-            title: "App Development",
-            description:
-              "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
+            breakpoint: 770,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
           },
           {
-            src: require("../../assets/images/portfolio/portfolio-4.jpg"),
-            category: "Design",
-            title: "Photoshop",
-            description:
-              "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
-          },
-          {
-            src: require("../../assets/images/portfolio/portfolio-5.jpg"),
-            category: "Shop",
-            title: "Woocommerce",
-            description:
-              "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
-          },
-          {
-            src: require("../../assets/images/portfolio/portfolio-6.jpg"),
-            category: "Medical",
-            title: "Medical Application",
-            description:
-              "Lorem ipsum dolor sit amet, consec tetur adipiscing elit.",
+            breakpoint: 490,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              initialSlide: 1,
+            },
           },
         ],
-        // for all works
-        settings: {
-          dots: true,
-          infinite: true,
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          spaceBetween: 15,
-
-          responsive: [
-            {
-              breakpoint: 890,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true,
-              },
-            },
-            {
-              breakpoint: 770,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true,
-              },
-            },
-            {
-              breakpoint: 490,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                initialSlide: 1,
-              },
-            },
-          ],
-        },
-      };
-    },
-  };
+      },
+    };
+  },
+};
 </script>

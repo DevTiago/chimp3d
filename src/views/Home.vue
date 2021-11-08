@@ -9,7 +9,14 @@
     <!-- Start Slider Area  -->
     <div class="rn-slider-area">
       <div
-        class="justify-center slide slide-style-2 fullscreen d-flex align-center bg_image bg_image--24"
+        class="
+          justify-center
+          slide slide-style-2
+          fullscreen
+          d-flex
+          align-center
+          bg_image bg_image--24
+        "
         data-black-overlay="6"
       >
         <Banner>
@@ -26,9 +33,6 @@
             >Contacta-nos</router-link
           >
         </Banner>
-
-
-
       </div>
     </div>
     <!-- End Slider Area  -->
@@ -41,11 +45,11 @@
             <div class="text-center section-title">
               <span class="subtitle mt-5">O que podemos fazer por si</span>
               <h2 class="heading-title">Serviços</h2>
-<!--              <p class="description">-->
-<!--                There are many variations of passages of Lorem Ipsum available,-->
-<!--                <br />-->
-<!--                but the majority have suffered alteration.-->
-<!--              </p>-->
+              <!--              <p class="description">-->
+              <!--                There are many variations of passages of Lorem Ipsum available,-->
+              <!--                <br />-->
+              <!--                but the majority have suffered alteration.-->
+              <!--              </p>-->
             </div>
           </v-col>
         </v-row>
@@ -55,35 +59,35 @@
     <!-- Start Service Area  -->
 
     <!-- Start Portfolio Area  -->
-<!--    <div class="rn-portfolio-area bg_color&#45;&#45;10 ptb&#45;&#45;120">-->
-<!--      <v-container>-->
-<!--        <v-row>-->
-<!--          <v-col lg="12">-->
-<!--            <div class="text-center section-title mb&#45;&#45;30">-->
-<!--              <span class="subtitle">My complete project</span>-->
-<!--              <h2 class="heading-title">Our Project</h2>-->
-<!--              <p class="description">-->
-<!--                There are many variations of passages of Lorem Ipsum available,-->
-<!--                <br />-->
-<!--                but the majority have suffered alteration.-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
-<!--      </v-container>-->
-<!--      <div class="wrapper plr&#45;&#45;30">-->
-<!--        <PortfolioSix />-->
-<!--        <v-row>-->
-<!--          <v-col lg="12">-->
-<!--            <div class="text-center view-more-btn mt&#45;&#45;60">-->
-<!--              <a class="btn-default" href="portfolio.html"-->
-<!--                ><span>View More Project</span></a-->
-<!--              >-->
-<!--            </div>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="rn-portfolio-area bg_color&#45;&#45;10 ptb&#45;&#45;120">-->
+    <!--      <v-container>-->
+    <!--        <v-row>-->
+    <!--          <v-col lg="12">-->
+    <!--            <div class="text-center section-title mb&#45;&#45;30">-->
+    <!--              <span class="subtitle">My complete project</span>-->
+    <!--              <h2 class="heading-title">Our Project</h2>-->
+    <!--              <p class="description">-->
+    <!--                There are many variations of passages of Lorem Ipsum available,-->
+    <!--                <br />-->
+    <!--                but the majority have suffered alteration.-->
+    <!--              </p>-->
+    <!--            </div>-->
+    <!--          </v-col>-->
+    <!--        </v-row>-->
+    <!--      </v-container>-->
+    <!--      <div class="wrapper plr&#45;&#45;30">-->
+    <!--        <PortfolioSix />-->
+    <!--        <v-row>-->
+    <!--          <v-col lg="12">-->
+    <!--            <div class="text-center view-more-btn mt&#45;&#45;60">-->
+    <!--              <a class="btn-default" href="portfolio.html"-->
+    <!--                ><span>View More Project</span></a-->
+    <!--              >-->
+    <!--            </div>-->
+    <!--          </v-col>-->
+    <!--        </v-row>-->
+    <!--      </div>-->
+    <!--    </div>-->
     <!-- End Portfolio Area  -->
 
     <!-- Start Portfolio Area -->
@@ -95,7 +99,8 @@
               <span class="subtitle">Projetos</span>
               <h2 class="heading-title">Algum do nosso trabalho</h2>
               <p class="description">
-                ** There are many variations of passages of Lorem Ipsum available,
+                ** There are many variations of passages of Lorem Ipsum
+                available,
                 <br />
                 but the majority have suffered alteration. **
               </p>
@@ -107,70 +112,68 @@
     </div>
     <!-- End Portfolio Area -->
 
-
-
     <!-- Start Progress Area  -->
-<!--    <div class="rn-progress-area pb&#45;&#45;120 bg_color&#45;&#45;10">-->
-<!--      <v-container class="container">-->
-<!--        <v-row class="row&#45;&#45;35 align-items-center">-->
-<!--          <v-col lg="6" md="6" cols="12">-->
-<!--            <div class="thumbnail">-->
-<!--              <img-->
-<!--                class="w-100"-->
-<!--                src="../assets/images/about/about-4.png"-->
-<!--                alt="About Images"-->
-<!--              />-->
-<!--            </div>-->
-<!--          </v-col>-->
-<!--          <v-col lg="6" md="6" cols="12" class="mt_md&#45;&#45;30 mt_sm&#45;&#45;30">-->
-<!--            <div class="progress-content-here">-->
-<!--              <div class="section-title text-left">-->
-<!--                <span class="subtitle">Our Skill</span>-->
-<!--                <h2 class="heading-title">Agency Skill</h2>-->
-<!--                <p class="description">-->
-<!--                  There are many variations of passages of Lorem Ipsum available-->
-<!--                  but the majority have suffered alteration.-->
-<!--                </p>-->
-<!--              </div>-->
-<!--              <div class="progress-wrapper">-->
-<!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-<!--                  <h6 class="heading heading-h6">Designing</h6>-->
-<!--                  <div class="progress fadeInLeft">-->
-<!--                    <div class="progress-bar" style="width: 95%;">-->
-<!--                      <span class="percent-label">95%</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-<!--                  <h6 class="heading heading-h6">Managment</h6>-->
-<!--                  <div class="progress">-->
-<!--                    <div class="progress-bar" style="width: 85%;">-->
-<!--                      <span class="percent-label">85%</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-<!--                  <h6 class="heading heading-h6">Marketing</h6>-->
-<!--                  <div class="progress">-->
-<!--                    <div class="progress-bar" style="width: 75%;">-->
-<!--                      <span class="percent-label">75%</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-<!--                  <h6 class="heading heading-h6">Development</h6>-->
-<!--                  <div class="progress">-->
-<!--                    <div class="progress-bar" style="width: 90%;">-->
-<!--                      <span class="percent-label">90%</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
-<!--      </v-container>-->
-<!--    </div>-->
+    <!--    <div class="rn-progress-area pb&#45;&#45;120 bg_color&#45;&#45;10">-->
+    <!--      <v-container class="container">-->
+    <!--        <v-row class="row&#45;&#45;35 align-items-center">-->
+    <!--          <v-col lg="6" md="6" cols="12">-->
+    <!--            <div class="thumbnail">-->
+    <!--              <img-->
+    <!--                class="w-100"-->
+    <!--                src="../assets/images/about/about-4.png"-->
+    <!--                alt="About Images"-->
+    <!--              />-->
+    <!--            </div>-->
+    <!--          </v-col>-->
+    <!--          <v-col lg="6" md="6" cols="12" class="mt_md&#45;&#45;30 mt_sm&#45;&#45;30">-->
+    <!--            <div class="progress-content-here">-->
+    <!--              <div class="section-title text-left">-->
+    <!--                <span class="subtitle">Our Skill</span>-->
+    <!--                <h2 class="heading-title">Agency Skill</h2>-->
+    <!--                <p class="description">-->
+    <!--                  There are many variations of passages of Lorem Ipsum available-->
+    <!--                  but the majority have suffered alteration.-->
+    <!--                </p>-->
+    <!--              </div>-->
+    <!--              <div class="progress-wrapper">-->
+    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
+    <!--                  <h6 class="heading heading-h6">Designing</h6>-->
+    <!--                  <div class="progress fadeInLeft">-->
+    <!--                    <div class="progress-bar" style="width: 95%;">-->
+    <!--                      <span class="percent-label">95%</span>-->
+    <!--                    </div>-->
+    <!--                  </div>-->
+    <!--                </div>-->
+    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
+    <!--                  <h6 class="heading heading-h6">Managment</h6>-->
+    <!--                  <div class="progress">-->
+    <!--                    <div class="progress-bar" style="width: 85%;">-->
+    <!--                      <span class="percent-label">85%</span>-->
+    <!--                    </div>-->
+    <!--                  </div>-->
+    <!--                </div>-->
+    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
+    <!--                  <h6 class="heading heading-h6">Marketing</h6>-->
+    <!--                  <div class="progress">-->
+    <!--                    <div class="progress-bar" style="width: 75%;">-->
+    <!--                      <span class="percent-label">75%</span>-->
+    <!--                    </div>-->
+    <!--                  </div>-->
+    <!--                </div>-->
+    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
+    <!--                  <h6 class="heading heading-h6">Development</h6>-->
+    <!--                  <div class="progress">-->
+    <!--                    <div class="progress-bar" style="width: 90%;">-->
+    <!--                      <span class="percent-label">90%</span>-->
+    <!--                    </div>-->
+    <!--                  </div>-->
+    <!--                </div>-->
+    <!--              </div>-->
+    <!--            </div>-->
+    <!--          </v-col>-->
+    <!--        </v-row>-->
+    <!--      </v-container>-->
+    <!--    </div>-->
     <!-- End Progress Area  -->
 
     <!-- Start Brand Area -->
@@ -196,36 +199,35 @@
 </template>
 
 <script>
-  import Header from "../components/header/Header";
-  import Banner from "../components/slider/Banner";
-  // import PortfolioSix from "../components/portfolio/PortfolioSix";
-  import PortfolioTwo from "../components/portfolio/PortfolioTwo";
-  import ServiceThree from "../components/service/ServiceThree";
-  import Brand from "../components/brand/Brand";
-  import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
+import Banner from "../components/slider/Banner";
+// import PortfolioSix from "../components/portfolio/PortfolioSix";
+import PortfolioTwo from "../components/portfolio/PortfolioTwo";
+import ServiceThree from "../components/service/ServiceThree";
+import Brand from "../components/brand/Brand";
+import Footer from "../components/footer/Footer";
 
-  
-  export default {
-    components: {
-      Header,
-      Banner,
-      // PortfolioSix,
-      Brand,
-      PortfolioTwo,
-      ServiceThree,
-      Footer,
-    },
-    data() {
-      return {
-        items: [
-          {
-            thumb: require("../assets/images/blog/bl-big-02.jpg"),
-            src: "https://www.youtube.com/watch?v=ZOoVOfieAF8",
-          },
-        ],
-        index: null,
-        logo: require("../assets/images/logo/logo.png"),
-      };
-    },
-  };
+export default {
+  components: {
+    Header,
+    Banner,
+    // PortfolioSix,
+    Brand,
+    PortfolioTwo,
+    ServiceThree,
+    Footer,
+  },
+  data() {
+    return {
+      items: [
+        {
+          thumb: require("../assets/images/blog/bl-big-02.jpg"),
+          src: "https://www.youtube.com/watch?v=ZOoVOfieAF8",
+        },
+      ],
+      index: null,
+      logo: require("../assets/images/logo/logo.png"),
+    };
+  },
+};
 </script>
