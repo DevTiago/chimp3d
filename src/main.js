@@ -1,24 +1,40 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import vuetify from "./plugins/vuetify";
 import VueParticles from "vue-particles";
-import CoolLightBox from 'vue-cool-lightbox';
-import VueScrollactive from 'vue-scrollactive';
+import CoolLightBox from "vue-cool-lightbox";
+import VueScrollactive from "vue-scrollactive";
+import axios from "axios";
+import * as firebase from "firebase/app";
+
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import '@fortawesome/fontawesome-free/css/all.css'
-import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-import './assets/scss/main.scss'
+import "@fortawesome/fontawesome-free/css/all.css";
+import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
+import "./assets/scss/main.scss";
 
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 Vue.use(VueParticles);
 Vue.use(CoolLightBox);
 Vue.use(VueScrollactive);
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCmNOKOFs0Yh5NZjseUooZVCgt6klWofuQ",
+  authDomain: "chimp3d-f2542.firebaseapp.com",
+  projectId: "chimp3d-f2542",
+  storageBucket: "chimp3d-f2542.appspot.com",
+  messagingSenderId: "1073288211893",
+  appId: "1:1073288211893:web:0f9a26cecd0c8bf7bdfdfc",
+  measurementId: "G-EMWE6C90D7",
+};
+
+//initialize firebase
+firebase.initializeApp(firebaseConfig);
 
 new Vue({
-    router,
-    vuetify,
-    render: h => h(App)
-}).$mount('#app')
+  router,
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");

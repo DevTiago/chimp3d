@@ -10,7 +10,7 @@
         <div class="about-inner inner">
           <div class="section-title">
             <div class="icon" v-html="iconSvg(icon)"></div>
-            <h2 class="heading-title">Refreshingly Unique Company About.</h2>
+            <h2 class="heading-title">This is the admin Page!.</h2>
             <p class="description">
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia, there live the blind texts. Separated
@@ -35,17 +35,17 @@
 </template>
 
 <script>
-  import feather from "feather-icons";
-  export default {
-    data() {
-      return {
-        icon: "send",
-      };
+import feather from "feather-icons";
+export default {
+  data() {
+    return {
+      icon: "send",
+    };
+  },
+  methods: {
+    iconSvg(icon) {
+      return feather.icons[icon].toSvg();
     },
-    methods: {
-      iconSvg(icon) {
-        return feather.icons[icon].toSvg();
-      },
-    },
-  };
+  },
+};
 </script>
