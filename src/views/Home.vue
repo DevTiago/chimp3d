@@ -30,7 +30,7 @@
             slot="button"
             class="btn-default btn-border btn-opacity"
             to="/"
-            >Loja</router-link
+            >Contacta-nos</router-link
           >
         </Banner>
       </div>
