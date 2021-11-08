@@ -15,9 +15,8 @@
         </div>
         <div class="content">
           <h4 class="heading-title">{{ team.title }}</h4>
-          <p class="designation">{{ team.designation }}</p>
+          <p class="designation">€ {{ team.price }}</p>
         </div>
-        <SocialIcon />
       </div>
     </v-col>
     <!-- End Single Team Area  -->
@@ -25,40 +24,37 @@
 </template>
 
 <script>
-  import SocialIcon from "../../components/social/Social";
-  export default {
-    components: {
-      SocialIcon,
-    },
-    data() {
-      return {
-        teamContent: [
-          {
-            id: 1,
-            src: require("../../assets/images/team/team-01.jpg"),
-            title: "Jone Due",
-            designation: "Sr. Web Developer",
-          },
-          {
-            id: 2,
-            src: require("../../assets/images/team/team-02.jpg"),
-            title: "Fatima-Asrafi",
-            designation: "Front-end Engineer",
-          },
-          {
-            id: 3,
-            src: require("../../assets/images/team/team-03.jpg"),
-            title: "Al-Amin Bali",
-            designation: "Sr. Graphic Designer",
-          },
-          {
-            id: 4,
-            src: require("../../assets/images/team/team-06.jpg"),
-            title: "Fatima-Asrafi",
-            designation: "Front-end Engineer",
-          },
-        ],
-      };
-    },
-  };
+export default {
+  components: {},
+  data() {
+    return {
+      teamContent: [
+        {
+          id: 1,
+          src: require("../../assets/images/team/team-01.jpg"),
+          title: "Filamento 1",
+          price: "10",
+        },
+        {
+          id: 2,
+          src: require("../../assets/images/team/team-02.jpg"),
+          title: "Consumivel",
+          price: "5",
+        },
+        {
+          id: 3,
+          src: require("../../assets/images/team/team-03.jpg"),
+          title: "Peça",
+          price: "19",
+        },
+        {
+          id: 4,
+          src: require("../../assets/images/team/team-06.jpg"),
+          title: "Filamento 2",
+          price: "8",
+        },
+      ],
+    };
+  },
+};
 </script>

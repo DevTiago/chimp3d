@@ -30,7 +30,7 @@
             slot="button"
             class="btn-default btn-border btn-opacity"
             to="/"
-            >Contacta-nos</router-link
+            >Loja</router-link
           >
         </Banner>
       </div>
@@ -112,69 +112,38 @@
     </div>
     <!-- End Portfolio Area -->
 
-    <!-- Start Progress Area  -->
-    <!--    <div class="rn-progress-area pb&#45;&#45;120 bg_color&#45;&#45;10">-->
-    <!--      <v-container class="container">-->
-    <!--        <v-row class="row&#45;&#45;35 align-items-center">-->
-    <!--          <v-col lg="6" md="6" cols="12">-->
-    <!--            <div class="thumbnail">-->
-    <!--              <img-->
-    <!--                class="w-100"-->
-    <!--                src="../assets/images/about/about-4.png"-->
-    <!--                alt="About Images"-->
-    <!--              />-->
-    <!--            </div>-->
-    <!--          </v-col>-->
-    <!--          <v-col lg="6" md="6" cols="12" class="mt_md&#45;&#45;30 mt_sm&#45;&#45;30">-->
-    <!--            <div class="progress-content-here">-->
-    <!--              <div class="section-title text-left">-->
-    <!--                <span class="subtitle">Our Skill</span>-->
-    <!--                <h2 class="heading-title">Agency Skill</h2>-->
-    <!--                <p class="description">-->
-    <!--                  There are many variations of passages of Lorem Ipsum available-->
-    <!--                  but the majority have suffered alteration.-->
-    <!--                </p>-->
-    <!--              </div>-->
-    <!--              <div class="progress-wrapper">-->
-    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-    <!--                  <h6 class="heading heading-h6">Designing</h6>-->
-    <!--                  <div class="progress fadeInLeft">-->
-    <!--                    <div class="progress-bar" style="width: 95%;">-->
-    <!--                      <span class="percent-label">95%</span>-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-    <!--                  <h6 class="heading heading-h6">Managment</h6>-->
-    <!--                  <div class="progress">-->
-    <!--                    <div class="progress-bar" style="width: 85%;">-->
-    <!--                      <span class="percent-label">85%</span>-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-    <!--                  <h6 class="heading heading-h6">Marketing</h6>-->
-    <!--                  <div class="progress">-->
-    <!--                    <div class="progress-bar" style="width: 75%;">-->
-    <!--                      <span class="percent-label">75%</span>-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--                <div class="rn-progress-charts progress-bar&#45;&#45;3">-->
-    <!--                  <h6 class="heading heading-h6">Development</h6>-->
-    <!--                  <div class="progress">-->
-    <!--                    <div class="progress-bar" style="width: 90%;">-->
-    <!--                      <span class="percent-label">90%</span>-->
-    <!--                    </div>-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </v-col>-->
-    <!--        </v-row>-->
-    <!--      </v-container>-->
-    <!--    </div>-->
-    <!-- End Progress Area  -->
+    <!-- Start team Area  -->
+    <div class="rn-team-wrapper pt--120 bg_color--1" id="team">
+      <v-container>
+        <v-row>
+          <v-col lg="12">
+            <div class="section-title mb--30 text-center">
+              <span class="subtitle">A nossa loja</span>
+              <h2 class="heading-title">
+                **Alguns dos nossos artigos disponiveis**
+              </h2>
+              <p class="description">
+                ** There are many variations of passages of Lorem Ipsum
+                available,
+                <br />
+                but the majority have suffered alteration. **
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+        <TeamFour />
+
+        <div class="shop_link d-flex w-100">
+          <router-link
+            slot="button"
+            class="btn-default btn-border btn-opacity"
+            to="/"
+            >Ver loja</router-link
+          >
+        </div>
+      </v-container>
+    </div>
+    <!-- End team Area  -->
 
     <!-- Start Brand Area -->
     <div class="rn-brand-area bg_color--1 ptb--120">
@@ -203,6 +172,7 @@ import Header from "../components/header/Header";
 import Banner from "../components/slider/Banner";
 // import PortfolioSix from "../components/portfolio/PortfolioSix";
 import PortfolioTwo from "../components/portfolio/PortfolioTwo";
+import TeamFour from "../components/team/TeamFour";
 import ServiceThree from "../components/service/ServiceThree";
 import Brand from "../components/brand/Brand";
 import Footer from "../components/footer/Footer";
@@ -212,6 +182,7 @@ export default {
     Header,
     Banner,
     // PortfolioSix,
+    TeamFour,
     Brand,
     PortfolioTwo,
     ServiceThree,
