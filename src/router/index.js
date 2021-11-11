@@ -5,6 +5,12 @@ import goTo from "vuetify/es5/services/goto";
 // import Demo from '../views/Demo.vue'
 import Home from "../views/Home";
 import Admin from "../views/Admin";
+import Login from "../views/Login";
+import firebase from 'firebase/app';
+
+import Portfolio from '../components/admin/Portfolio'
+import Partners from '../components/admin/Partners'
+import Store from '../components/admin/Store'
 
 Vue.use(VueRouter);
 
@@ -17,23 +23,39 @@ const routes = [
     },
   },
   {
+    path: "/login",
+    name: "login",
+    component: Login,
+    meta: {
+      title: "Chimp3d Admin",
+    },
+  },
+  {
     path: "/admin",
     name: "admin",
     component: Admin,
     meta: {
       title: "Chimp3d Admin",
+      requiresAuth: true
     },
+    children: [
+      {
+        path: 'portfolio',
+        name: 'Portfolio',
+        component: Portfolio
+      },
+      {
+        path: 'store',
+        name: 'Store',
+        component: Store
+      },
+      {
+        path: 'partners',
+        name: 'Partners',
+        component: Partners
+      },
+    ]
   },
-
-  // {
-  //     path: '/about',
-  //     name: 'About',
-  //     meta: {
-  //         title: 'About - VueJS Creative Agency and Portfolio Template'
-  //     },
-  //     component: () =>
-  //         import ('../views/About.vue')
-  // },
 ];
 
 const router = new VueRouter({
@@ -53,8 +75,18 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  next();
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = firebase.auth().currentUser;
+
+  if (requiresAuth && !isAuthenticated) {
+    next('/login');
+  } else if(isAuthenticated && to.name === 'login') {
+    next('/admin');
+  } else {
+    next();
+  }
+
+
 });
 
 export default router;
