@@ -1,6 +1,6 @@
 <template>
   <v-app class="grey lighten-4">
-    <Navbar />
+    <Navbar/>
     <p>teste</p>
 
     <v-main class="mx-4 mb-4">
@@ -17,9 +17,7 @@ import Navbar from "../components/admin/Navbar";
 export default {
   components: {Navbar},
   data() {
-    return {
-
-    };
+    return {};
   },
 
   methods: {}
