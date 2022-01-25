@@ -32,6 +32,7 @@ import { Carousel, Slide } from 'vue-carousel';
 
 import {db} from "@/main";
 
+
 export default {
   components: {Carousel, Slide},
   data() {
