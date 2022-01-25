@@ -32,13 +32,11 @@ import { Carousel, Slide } from 'vue-carousel';
 
 import {db} from "@/main";
 
-
 export default {
-  components: {Carousel, Slide},
+  components: { Carousel, Slide },
   data() {
     return {
       portfolioContent: [],
-      // for all works
     };
   },
 
