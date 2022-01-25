@@ -12,9 +12,7 @@
           <div class="inner">
             <div class="portfolio_heading">
               <h4 class="heading-title">
-                <span>{{
-                    item.name
-                  }}</span>
+                <span>{{item.name }}</span>
               </h4>
             </div>
             <div class="portfolio_hover">
@@ -29,9 +27,7 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
-
-
-import {db} from "@/main";
+import { db } from "@/main";
 
 export default {
   components: { Carousel, Slide },
@@ -66,6 +62,4 @@ export default {
 .thumbnail img {
   height: 100%
 }
-
-
 </style>
