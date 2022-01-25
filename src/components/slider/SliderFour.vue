@@ -1,37 +1,37 @@
 <template>
   <div>
-    <VueSlickCarousel
-      v-bind="settings"
-      class="slider-activation rn-slick-dot dot-light"
-    >
-      <div
-        class="slide slide-style-2 slider-box-content without-overlay d-flex align-center bg_image"
-        data-black-overlay="2"
-        v-for="(slider, i) in sliderContent"
-        :key="i"
-        :style="{ backgroundImage: 'url(' + slider.src + ')' }"
-      >
-        <v-container>
-          <div class="text-left inner">
-            <h1 class="heading-title">{{ slider.title }}</h1>
-            <p class="description">
-              {{ slider.desc }}
-            </p>
-            <div class="slide-btn">
-              <router-link class="btn-default" to="/contact"
-                >Contact Us</router-link
-              >
-            </div>
-          </div>
-        </v-container>
-      </div>
-      <!-- End Single Slide  -->
-    </VueSlickCarousel>
+<!--    <VueSlickCarousel-->
+<!--      v-bind="settings"-->
+<!--      class="slider-activation rn-slick-dot dot-light"-->
+<!--    >-->
+<!--      <div-->
+<!--        class="slide slide-style-2 slider-box-content without-overlay d-flex align-center bg_image"-->
+<!--        data-black-overlay="2"-->
+<!--        v-for="(slider, i) in sliderContent"-->
+<!--        :key="i"-->
+<!--        :style="{ backgroundImage: 'url(' + slider.src + ')' }"-->
+<!--      >-->
+<!--        <v-container>-->
+<!--          <div class="text-left inner">-->
+<!--            <h1 class="heading-title">{{ slider.title }}</h1>-->
+<!--            <p class="description">-->
+<!--              {{ slider.desc }}-->
+<!--            </p>-->
+<!--            <div class="slide-btn">-->
+<!--              <router-link class="btn-default" to="/contact"-->
+<!--                >Contact Us</router-link-->
+<!--              >-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </v-container>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; End Single Slide  &ndash;&gt;-->
+<!--    </VueSlickCarousel>-->
   </div>
 </template>
 
 <script>
-  import VueSlickCarousel from "vue-slick-carousel";
+  // import VueSlickCarousel from "vue-slick-carousel";
 
   export default {
     components: { VueSlickCarousel },

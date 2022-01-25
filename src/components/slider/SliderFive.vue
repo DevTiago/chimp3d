@@ -1,43 +1,43 @@
 <template>
   <div>
-    <VueSlickCarousel
-      v-bind="settings"
-      class="rn-slider-area slider-activation rn-slick-dot dot-light mb--0"
-    >
-      <div
-        class="slide slide-style-2 d-flex align-center justify-center fullscreen bg_image"
-        data-black-overlay="8"
-        v-for="(slider, i) in sliderContent"
-        :key="i"
-        :style="{ backgroundImage: 'url(' + slider.src + ')' }"
-      >
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <div class="inner text-center">
-                <h1 class="heading-title theme-gradient">{{ slider.title }}</h1>
-                <p class="description">
-                  {{ slider.desc }}
-                </p>
-                <div class="slide-btn">
-                  <router-link
-                    class="btn-default btn-border btn-large btn-opacity"
-                    to="/contact"
-                    >Contact Us</router-link
-                  >
-                </div>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </div>
-      <!-- End Single Slide  -->
-    </VueSlickCarousel>
+<!--    <VueSlickCarousel-->
+<!--      v-bind="settings"-->
+<!--      class="rn-slider-area slider-activation rn-slick-dot dot-light mb&#45;&#45;0"-->
+<!--    >-->
+<!--      <div-->
+<!--        class="slide slide-style-2 d-flex align-center justify-center fullscreen bg_image"-->
+<!--        data-black-overlay="8"-->
+<!--        v-for="(slider, i) in sliderContent"-->
+<!--        :key="i"-->
+<!--        :style="{ backgroundImage: 'url(' + slider.src + ')' }"-->
+<!--      >-->
+<!--        <v-container>-->
+<!--          <v-row>-->
+<!--            <v-col cols="12">-->
+<!--              <div class="inner text-center">-->
+<!--                <h1 class="heading-title theme-gradient">{{ slider.title }}</h1>-->
+<!--                <p class="description">-->
+<!--                  {{ slider.desc }}-->
+<!--                </p>-->
+<!--                <div class="slide-btn">-->
+<!--                  <router-link-->
+<!--                    class="btn-default btn-border btn-large btn-opacity"-->
+<!--                    to="/contact"-->
+<!--                    >Contact Us</router-link-->
+<!--                  >-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </v-col>-->
+<!--          </v-row>-->
+<!--        </v-container>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; End Single Slide  &ndash;&gt;-->
+<!--    </VueSlickCarousel>-->
   </div>
 </template>
 
 <script>
-  import VueSlickCarousel from "vue-slick-carousel";
+  // import VueSlickCarousel from "vue-slick-carousel";
 
   export default {
     components: { VueSlickCarousel },

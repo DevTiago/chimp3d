@@ -13,9 +13,6 @@ import { firestorePlugin } from 'vuefire';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
-
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 import "./assets/scss/main.scss";

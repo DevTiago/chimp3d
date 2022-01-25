@@ -2,57 +2,14 @@
   <v-row>
     <v-col cols="12">
       <div class="slick-space-gutter--15 slickdot--20">
-        <VueSlickCarousel
-          v-bind="settings"
-          class="rn-slick-activation slick-dotted rn-slick-dot mt--10"
-        >
-          <!-- Start Single Blog  -->
-
-          <div class="im_box mt--30" v-for="(item, i) in blogContent" :key="i">
-            <div class="thumbnail">
-              <router-link to="/blog-details">
-                <img class="w-100" :src="item.src" alt="Blog Images" />
-              </router-link>
-            </div>
-            <div class="content">
-              <div class="inner">
-                <div class="content_heading">
-                  <div class="category_list">
-                    <router-link to="/blog-details">{{
-                      item.category
-                    }}</router-link>
-                  </div>
-                  <h4 class="heading-title">
-                    <router-link to="/blog-details">{{
-                      item.title
-                    }}</router-link>
-                  </h4>
-                </div>
-                <div class="content_footer">
-                  <router-link to="/blog-details" class="rn-btn btn-opacity">
-                    Read More
-                  </router-link>
-                </div>
-              </div>
-              <router-link
-                class="transparent_link"
-                to="/blog-details"
-              ></router-link>
-            </div>
-          </div>
-
-          <!-- End Single Blog  -->
-        </VueSlickCarousel>
       </div>
     </v-col>
   </v-row>
 </template>
 
 <script>
-  import VueSlickCarousel from "vue-slick-carousel";
   export default {
     components: {
-      VueSlickCarousel,
     },
     data() {
       return {

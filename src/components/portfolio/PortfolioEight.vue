@@ -1,54 +1,13 @@
 <template>
   <div>
     <!-- Start Portfolio Activation  -->
-    <VueSlickCarousel
-      v-bind="settings"
-      class="rn-slick-activation portfolio-slick-activation item-fluid slick-dotted rn-slick-dot mt--40 mt_sm--40"
-    >
-      <!-- Start Single Portfolio  -->
-      <div class="im_portfolio" v-for="(item, i) in portfolioContent" :key="i">
-        <div class="thumbnail_inner">
-          <div class="thumbnail">
-            <a href="portfolio-details.html">
-              <img class="w-100" :src="item.src" alt="Portfolio Images" />
-            </a>
-          </div>
-        </div>
-        <div class="content">
-          <div class="inner">
-            <div class="portfolio_heading">
-              <div class="category_list">
-                <router-link to="/portfolio-details">{{
-                  item.category
-                }}</router-link>
-              </div>
-              <h4 class="heading-title">
-                <router-link to="/portfolio-details">{{
-                  item.title
-                }}</router-link>
-              </h4>
-            </div>
-            <div class="portfolio_hover">
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-        <router-link
-          class="transparent_link"
-          to="/portfolio-details"
-        ></router-link>
-      </div>
-      <!-- End Single Portfolio  -->
-    </VueSlickCarousel>
   </div>
 </template>
 
 <script>
-  import VueSlickCarousel from "vue-slick-carousel";
+  // import VueSlickCarousel from "vue-slick-carousel";
   export default {
-    components: {
-      VueSlickCarousel,
-    },
+    components: {},
     data() {
       return {
         portfolioContent: [
