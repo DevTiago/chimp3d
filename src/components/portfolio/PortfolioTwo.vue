@@ -47,11 +47,9 @@ export default {
     })
   }
 };
-
 </script>
 
 <style>
-
 .im_portfolio {
   padding: 10px
 }
