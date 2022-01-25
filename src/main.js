@@ -5,9 +5,14 @@ import vuetify from "./plugins/vuetify";
 import VueParticles from "vue-particles";
 import CoolLightBox from "vue-cool-lightbox";
 import VueScrollactive from "vue-scrollactive";
+import VueCarousel from 'vue-carousel';
+
 import axios from "axios";
-import firebase from 'firebase/app';
 import 'firebase/auth';
+import { firestorePlugin } from 'vuefire';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/storage';
 
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -20,6 +25,8 @@ Vue.config.productionTip = false;
 Vue.use(VueParticles);
 Vue.use(CoolLightBox);
 Vue.use(VueScrollactive);
+Vue.use(VueCarousel);
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyCmNOKOFs0Yh5NZjseUooZVCgt6klWofuQ",
@@ -33,6 +40,7 @@ const firebaseConfig = {
 
 //initialize firebase
 firebase.initializeApp(firebaseConfig);
+export const db = firebase.firestore();
 
 let app;
 

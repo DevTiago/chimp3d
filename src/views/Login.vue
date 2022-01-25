@@ -122,6 +122,10 @@ export default {
   transition: all 150ms ease;
 }
 
+.input {
+  border: 1px solid #000
+}
+
 .button:focus {
   text-decoration: underline;
   border: solid 1px grey;

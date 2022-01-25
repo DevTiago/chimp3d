@@ -1,9 +1,8 @@
 <template>
   <v-app class="grey lighten-4">
     <Navbar/>
-    <p>teste</p>
 
-    <v-main class="mx-4 mb-4">
+    <v-main class="mb-4 main-div">
       <router-view></router-view>
     </v-main>
 
@@ -24,5 +23,11 @@ export default {
 };
 
 </script>
+
+<style scoped lang="css">
+.main-div {
+  padding: 60px 120px!important;
+}
+</style>
 
 
