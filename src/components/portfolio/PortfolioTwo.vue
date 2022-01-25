@@ -7,7 +7,7 @@
             <img class="w-100" :src="item.imageUrl" alt="Portfolio Images"/>
           </div>
         </div>
-        
+
         <div class="content">
           <div class="inner">
             <div class="portfolio_heading">
@@ -26,6 +26,7 @@
     </slide>
   </carousel>
 </template>
+
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
