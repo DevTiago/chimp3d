@@ -45,50 +45,12 @@
             <div class="text-center section-title">
               <span class="subtitle mt-5">O que podemos fazer por si</span>
               <h2 class="heading-title">Serviços</h2>
-              <!--              <p class="description">-->
-              <!--                There are many variations of passages of Lorem Ipsum available,-->
-              <!--                <br />-->
-              <!--                but the majority have suffered alteration.-->
-              <!--              </p>-->
             </div>
           </v-col>
         </v-row>
         <ServiceThree />
       </div>
     </div>
-    <!-- Start Service Area  -->
-
-    <!-- Start Portfolio Area  -->
-    <!--    <div class="rn-portfolio-area bg_color&#45;&#45;10 ptb&#45;&#45;120">-->
-    <!--      <v-container>-->
-    <!--        <v-row>-->
-    <!--          <v-col lg="12">-->
-    <!--            <div class="text-center section-title mb&#45;&#45;30">-->
-    <!--              <span class="subtitle">My complete project</span>-->
-    <!--              <h2 class="heading-title">Our Project</h2>-->
-    <!--              <p class="description">-->
-    <!--                There are many variations of passages of Lorem Ipsum available,-->
-    <!--                <br />-->
-    <!--                but the majority have suffered alteration.-->
-    <!--              </p>-->
-    <!--            </div>-->
-    <!--          </v-col>-->
-    <!--        </v-row>-->
-    <!--      </v-container>-->
-    <!--      <div class="wrapper plr&#45;&#45;30">-->
-    <!--        <PortfolioSix />-->
-    <!--        <v-row>-->
-    <!--          <v-col lg="12">-->
-    <!--            <div class="text-center view-more-btn mt&#45;&#45;60">-->
-    <!--              <a class="btn-default" href="portfolio.html"-->
-    <!--                ><span>View More Project</span></a-->
-    <!--              >-->
-    <!--            </div>-->
-    <!--          </v-col>-->
-    <!--        </v-row>-->
-    <!--      </div>-->
-    <!--    </div>-->
-    <!-- End Portfolio Area  -->
 
     <!-- Start Portfolio Area -->
     <div class="portfolio-area pt--120 pb--140 bg_color--5">
@@ -190,12 +152,6 @@ export default {
   },
   data() {
     return {
-      items: [
-        {
-          thumb: require("../assets/images/blog/bl-big-02.jpg"),
-          src: "https://www.youtube.com/watch?v=ZOoVOfieAF8",
-        },
-      ],
       index: null,
       logo: require("../assets/images/logo/logo.png"),
     };
