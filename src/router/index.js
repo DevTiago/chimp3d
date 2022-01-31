@@ -4,13 +4,15 @@ import goTo from "vuetify/es5/services/goto";
 // import Missing from '../views/404.vue'
 // import Demo from '../views/Demo.vue'
 import Home from "../views/Home";
+import Contact from "../views/Contact.vue";
 import Admin from "../views/Admin";
 import Login from "../views/Login";
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
 
-import Portfolio from '../components/admin/Portfolio'
-import Partners from '../components/admin/Partners'
-import Store from '../components/admin/Store'
+import Portfolio from "../components/admin/Portfolio";
+import Partners from "../components/admin/Partners";
+import Store from "../components/admin/Store";
+import Categories from "../components/admin/Categories.vue";
 
 Vue.use(VueRouter);
 
@@ -18,6 +20,13 @@ const routes = [
   {
     path: "/",
     component: Home,
+    meta: {
+      title: "Chimp3d - A tua loja 3D!",
+    },
+  },
+  {
+    path: "/contact",
+    component: Contact,
     meta: {
       title: "Chimp3d - A tua loja 3D!",
     },
@@ -36,25 +45,30 @@ const routes = [
     component: Admin,
     meta: {
       title: "Chimp3d Admin",
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
-        path: 'portfolio',
-        name: 'Portfolio',
-        component: Portfolio
+        path: "portfolio",
+        name: "Portfolio",
+        component: Portfolio,
       },
       {
-        path: 'store',
-        name: 'Store',
-        component: Store
+        path: "categories",
+        name: "Categories",
+        component: Categories,
       },
       {
-        path: 'partners',
-        name: 'Partners',
-        component: Partners
+        path: "store",
+        name: "Store",
+        component: Store,
       },
-    ]
+      {
+        path: "partners",
+        name: "Partners",
+        component: Partners,
+      },
+    ],
   },
 ];
 
@@ -75,18 +89,16 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const isAuthenticated = firebase.auth().currentUser;
 
   if (requiresAuth && !isAuthenticated) {
-    next('/login');
-  } else if(isAuthenticated && to.name === 'login') {
-    next('/admin');
+    next("/login");
+  } else if (isAuthenticated && to.name === "login") {
+    next("/admin");
   } else {
     next();
   }
-
-
 });
 
 export default router;

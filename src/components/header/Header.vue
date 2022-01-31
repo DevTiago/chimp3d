@@ -1,7 +1,6 @@
 <template>
   <div>
-
-<!--    Mobile navigation drawer-->
+    <!--    Mobile navigation drawer-->
     <v-navigation-drawer
       class="hidden-md-and-up"
       v-model="drawer"
@@ -11,10 +10,7 @@
     >
       <v-list-item class="pa-5">
         <div class="logo">
-          <img
-            src="../../assets/images/logo/logo.png"
-            alt="brand-image"
-          />
+          <img src="../../assets/images/logo/logo.png" alt="brand-image" />
         </div>
         <v-spacer></v-spacer>
         <v-btn
@@ -42,16 +38,21 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto">
-
-        <v-btn :ripple="false" text >Serviços</v-btn>
-        <v-btn :ripple="false" text >Projectos</v-btn>
-        <v-btn :ripple="false" text >Parceiros</v-btn>
-        <v-btn :ripple="false" text >Contactos</v-btn>
+        <v-btn :ripple="false" text>Serviços</v-btn>
+        <v-btn :ripple="false" text>Projectos</v-btn>
+        <v-btn :ripple="false" text>Parceiros</v-btn>
+        <v-btn :ripple="false" text>Contactos</v-btn>
       </v-toolbar-items>
       <!-- End header menu item -->
-      <a class="btn-default btn-border btn-opacity" target="_blank" href="#">
-        <span>Pedir orçamento</span>
-      </a>
+      <router-link to="/contact" class="logo">
+        <button
+          class="btn-default btn-border btn-opacity"
+          target="_blank"
+          href="#"
+        >
+          <span>Pedir orçamento</span>
+        </button>
+      </router-link>
       <v-btn
         :ripple="false"
         icon
@@ -67,20 +68,18 @@
 </template>
 
 <script>
-  import feather from "feather-icons";
-  export default {
-    data: () => ({
-      drawer: false,
+import feather from "feather-icons";
+export default {
+  data: () => ({
+    drawer: false,
+    icon: "menu",
+    closeIcon: "x",
+  }),
 
-
-      icon: "menu",
-      closeIcon: "x",
-    }),
-
-    methods: {
-      iconSvg(icon) {
-        return feather.icons[icon].toSvg();
-      },
+  methods: {
+    iconSvg(icon) {
+      return feather.icons[icon].toSvg();
     },
-  };
+  },
+};
 </script>

@@ -29,7 +29,7 @@
           <router-link
             slot="button"
             class="btn-default btn-border btn-opacity"
-            to="/"
+            to="/contact"
             >Contacta-nos</router-link
           >
         </Banner>
@@ -42,8 +42,8 @@
       <div class="container">
         <v-row>
           <v-col lg="12">
-            <div class="text-center section-title">
-              <span class="subtitle mt-5">O que podemos fazer por si</span>
+            <div class="text-center section-title mt-10">
+              <span class="subtitle">O que podemos fazer por si</span>
               <h2 class="heading-title">Serviços</h2>
             </div>
           </v-col>
@@ -132,7 +132,7 @@
 <script>
 import Header from "../components/header/Header";
 import Banner from "../components/slider/Banner";
-// import PortfolioSix from "../components/portfolio/PortfolioSix";
+// import PortfolioSix from ".ts/portfolio/PortfolioSix";
 import PortfolioTwo from "../components/portfolio/PortfolioTwo";
 import TeamFour from "../components/team/TeamFour";
 import ServiceThree from "../components/service/ServiceThree";
@@ -158,3 +158,5 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="css"></style>

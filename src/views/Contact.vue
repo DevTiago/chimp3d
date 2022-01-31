@@ -1,0 +1,46 @@
+<template>
+  <div class="active-dark bg_color--10">
+    <!-- Start Header Area -->
+    <Header>
+      <img slot="logo" :src="logo" />
+    </Header>
+    <!--   <div style="background-color: green" class="">
+      <v-container>
+        <Contact />
+      </v-container>
+    </div> -->
+
+    <div class="contact-area pb--120 bg_color--10">
+      <div class="container">
+        <Contact />
+      </div>
+    </div>
+
+    <!-- End Header Area -->
+    <Footer />
+  </div>
+</template>
+
+<script>
+import Header from "../components/header/Header";
+import Contact from "../components/contact/Contact.vue";
+import ServiceThree from "../components/service/ServiceThree";
+
+import Footer from "../components/footer/Footer";
+
+export default {
+  components: {
+    Header,
+    Contact,
+    ServiceThree,
+    Footer,
+  },
+  data() {
+    return {
+      logo: require("../assets/images/logo/logo.png"),
+    };
+  },
+};
+</script>
+
+<style scoped></style>

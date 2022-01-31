@@ -1,33 +1,6 @@
 <template>
   <div>
-    <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">Nome</th>
-            <th class="text-left">Descrição</th>
-            <th class="text-left">Imagem</th>
-            <th class="text-center">
-              <i class="fas fa-edit"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in portfolioItems" :key="item.name">
-            <td>{{ item.name }}</td>
-            <td class="text--darken-1">{{ item.description }}</td>
-            <td class="text--darken-1" style="height: 130px; width: 130px">
-              <img :src="item.imageUrl" alt="" />
-            </td>
-            <td class="text-center">
-              <v-btn color="primary" dark> Editar</v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
-
-    <v-row class="mt-2 ml-1">
+    <v-row class="mb-3 ml-1">
       <v-dialog v-model="newItemModal" persistent max-width="600px">
         <template v-slot:activator="{ on }">
           <v-btn color="success" dark v-on="on"> Adicionar novo </v-btn>
@@ -61,8 +34,8 @@
                     chips
                     small-chips
                     truncate-length="15"
-                    @change="previewImage"
                     accept="image/*"
+                    v-model="newItem.image"
                   >
                     >
                   </v-file-input>
@@ -70,18 +43,37 @@
               </v-row>
             </v-container>
           </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="newItemModal = false">
-              Fechar
-            </v-btn>
-            <v-btn color="blue darken-1" text @click="saveWork">
-              Guardar
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-row>
+    <v-spacer></v-spacer>
+
+    <v-simple-table dense>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">Nome</th>
+            <th class="text-left">Descrição</th>
+            <th class="text-left">Imagem</th>
+            <th class="text-center">
+              <i class="fas fa-edit"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in portfolioItems" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td class="text--darken-1">{{ item.description }}</td>
+            <td class="text--darken-1" style="height: 80px; width: 60px">
+              <img :src="item.imageUrl" alt="" />
+            </td>
+            <td class="text-center">
+              <v-btn color="primary" dark> Editar</v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
   </div>
 </template>
 
@@ -149,7 +141,8 @@ export default {
           imageUrl: url,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
-        .then(() => this.$router.go());
+        .then(() => this.$router.go())
+        .catch((e) => console.log(e));
     },
 
     async saveWork() {

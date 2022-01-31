@@ -1,132 +1,100 @@
 <template>
-  <v-row align="start" class="row--35">
-    <v-col lg="6" md="6" sm="12" cols="12" order="2" order-md="1">
-      <div class="text-left section-title mb--50">
-        <span class="subtitle">Let's Say Hi</span>
-        <h2 class="heading-title">Contact With Us.</h2>
+  <v-row class="w-100">
+    <div style="padding-top: 150px; margin: auto">
+      <div class="text-center section-title mb--50">
+        <span class="subtitle text-center">Estamos ao seu dispor</span>
+        <h2 class="heading-title">Contacto</h2>
         <div class="im_address">
-          <span>Call us directly:</span
-          ><a class="link im-hover" href="tel:+111 (0)55 5869 8976"
-            >+111 (0)55 5869 8976</a
-          >
+          <span>Podes contactar-nos directamente para o:</span
+          ><a class="link im-hover" href="tel:+351963241458">+351 963241458</a>
         </div>
         <div class="im_address mt--5">
-          <span>Contact Email:</span
-          ><a class="link im-hover" href="mailto:example@gmail.com"
-            >example@gmail.com</a
+          <span>ou pelo email:</span
+          ><a class="link im-hover" href="mailto:3dshop@sapo.pt"
+            >3dshop@sapo.pt</a
           >
         </div>
       </div>
       <div class="form-wrapper">
-        <ValidationObserver v-slot="{ handleSubmit }">
-          <form @submit.prevent="handleSubmit(onSubmit)">
-            <ValidationProvider
-              name="name"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <label>
-                <input
-                  type="text"
-                  v-model="formData.name"
-                  placeholder="Your Name *"
-                />
-                <span class="inpur-error">{{ errors[0] }}</span>
-              </label>
-            </ValidationProvider>
+        <v-form ref="form" v-model="valid" lazy-validation>
+          <v-text-field
+            class="theme--dark"
+            v-model="name"
+            label="Nome"
+            required
+          >
+          </v-text-field>
 
-            <ValidationProvider
-              name="email"
-              rules="required|email"
-              v-slot="{ errors }"
-            >
-              <label>
-                <input
-                  type="text"
-                  rules="required|email"
-                  v-model="formData.email"
-                  placeholder="Your email *"
-                />
-                <span class="inpur-error">{{ errors[0] }}</span>
-              </label>
-            </ValidationProvider>
+          <v-text-field
+            v-model="email"
+            class="theme--dark"
+            label="E-mail"
+            required
+          ></v-text-field>
 
-            <ValidationProvider
-              name="subject"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <label>
-                <input
-                  type="text"
-                  v-model="formData.subject"
-                  placeholder="Write a Subject"
-                />
-                <span class="inpur-error">{{ errors[0] }}</span>
-              </label>
-            </ValidationProvider>
+          <v-textarea
+            class="theme--dark"
+            name="input-2-1"
+            label="A sua mensagem:"
+            auto-grow
+            clearable
+            clear-icon="mdi-close-circle"
+            rows="3"
+            value=""
+          ></v-textarea>
 
-            <ValidationProvider
-              name="message"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <label>
-                <textarea
-                  v-model="formData.message"
-                  placeholder="Your Message"
-                ></textarea>
-                <span class="inpur-error">{{ errors[0] }}</span>
-              </label>
-            </ValidationProvider>
+          <v-checkbox
+            v-model="checkbox"
+            label="Do you agree?"
+            required
+          ></v-checkbox>
 
-            <button class="btn-default" type="submit" value="submit">
-              Submit Now
-            </button>
-          </form>
-        </ValidationObserver>
+          <v-btn color="success" class="mr-4"> Enviar </v-btn>
+        </v-form>
       </div>
-    </v-col>
-    <v-col lg="6" md="6" sm="12" cols="12" order="1" order-md="2">
-      <div class="thumbnail mb_md--40 mb_sm--40">
-        <slot name="contact-img"></slot>
-      </div>
-    </v-col>
+    </div>
   </v-row>
 </template>
 
 <script>
-  import { ValidationObserver } from "vee-validate";
-  import { ValidationProvider } from "vee-validate/dist/vee-validate.full.esm";
-  export default {
-    components: {
-      ValidationObserver,
-      ValidationProvider,
-    },
-    data() {
-      return {
-        formData: {
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        },
-      };
-    },
-    methods: {
-      onSubmit() {
-        console.log(this.formData);
+export default {
+  components: {},
+  data() {
+    return {
+      formData: {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
       },
+    };
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.formData);
     },
-  };
+  },
+};
 </script>
 
 <style lang="scss">
-  .form-wrapper label input,
-  .form-wrapper label textarea {
-    margin-bottom: 0;
-  }
-  .form-wrapper label {
-    margin-bottom: 20px;
-  }
+.form-wrapper label input,
+.form-wrapper label textarea {
+  margin-bottom: 0;
+}
+.form-wrapper label {
+  margin-bottom: 20px;
+}
+
+.theme--light.v-label {
+  color: #f4f4f4 !important;
+}
+
+.v-input__slot {
+  align-items: unset !important;
+}
+
+.theme--light.v-icon {
+  color: #f4f4f4;
+}
 </style>

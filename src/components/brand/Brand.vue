@@ -2,8 +2,8 @@
   <v-row class="mt--20">
     <v-col cols="12">
       <ul class="brand-style-2">
-        <li v-for="(brand, i) in brandImages" :key="i">
-          <img :src="brand.src" alt="Logo Images" />
+        <li v-for="(partner, i) in partners" :key="i">
+          <img :src="partner.imageUrl" alt="`${partner.name}`" />
         </li>
       </ul>
     </v-col>
@@ -11,48 +11,19 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        brandImages: [
-          {
-            src: require("../../assets/images/brand/brand-01.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-02.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-03.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-04.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-05.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-06.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-02.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-03.png"),
-            url: "#",
-          },
-          {
-            src: require("../../assets/images/brand/brand-04.png"),
-            url: "#",
-          },
-        ],
-      };
-    },
-  };
+import { db } from "@/main";
+export default {
+  data() {
+    return {
+      partners: [],
+    };
+  },
+
+  async created() {
+    const doc = await db.collection("partners").get();
+    doc.forEach((doc) => {
+      this.partners.push(doc.data());
+    });
+  },
+};
 </script>

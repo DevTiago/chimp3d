@@ -1,39 +1,6 @@
 <template>
   <div>
-    <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">Nome</th>
-            <th class="text-left">Descrição</th>
-            <th class="text-left">Categoria</th>
-            <th class="text-left">Preço</th>
-            <th class="text-left">Disponivel?</th>
-            <th class="text-left">Imagem</th>
-            <th class="text-center">
-              <i class="fas fa-edit"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in storeItems" :key="item.name">
-            <td>{{ item.name }}</td>
-            <td class="text--darken-1">{{ item.description }}</td>
-            <th class="text-left">{{ item.category }}</th>
-            <th class="text-left">{{ item.price }}</th>
-            <th class="text-left">{{ item.isActive ? "Sim" : "Não" }}</th>
-            <td class="text--darken-1" style="height: 130px; width: 130px">
-              <img :src="item.imageUrl" alt="" />
-            </td>
-            <td class="text-center">
-              <v-btn color="primary" dark> Editar</v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
-
-    <v-row class="mt-2 ml-1">
+    <v-row class="mb-3 ml-1">
       <v-dialog v-model="newStoreItemModal" persistent max-width="600px">
         <template v-slot:activator="{ on }">
           <v-btn color="success" dark v-on="on"> Adicionar novo </v-btn>
@@ -84,6 +51,7 @@
                     truncate-length="15"
                     @change="previewImage"
                     accept="image/*"
+                    v-model="newItem.image"
                   >
                     >
                   </v-file-input>
@@ -107,6 +75,38 @@
         </v-card>
       </v-dialog>
     </v-row>
+    <v-simple-table dense>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">Nome</th>
+            <th class="text-left">Descrição</th>
+            <th class="text-center">Categoria</th>
+            <th class="text-center">Preço</th>
+            <th class="text-center">Disponivel?</th>
+            <th class="text-center">Imagem</th>
+            <th class="text-center">
+              <i class="fas fa-edit"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in storeItems" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td class="text--darken-1">{{ item.description }}</td>
+            <th class="text-center">{{ item.category }}</th>
+            <th class="text-center">{{ item.price }}</th>
+            <th class="text-center">{{ item.isActive ? "Sim" : "Não" }}</th>
+            <td class="text--darken-1" style="height: 60px; width: 60px">
+              <img :src="item.imageUrl" alt="" />
+            </td>
+            <td class="text-center">
+              <v-btn color="primary" dark> Editar</v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
   </div>
 </template>
 
@@ -128,17 +128,21 @@ export default {
         image_url: "",
       },
       newStoreItemModal: false,
-      storeCategories: ["Consumíveis", "Tintas"],
+      storeCategories: [],
     };
   },
 
   async mounted() {
-    console.log("montado");
     const doc = await db.collection("store").get();
 
     doc.forEach((doc) => {
-      console.log(doc);
       this.storeItems.push(doc.data());
+    });
+
+    const docStoreCategories = await db.collection("storeCategories").get();
+
+    docStoreCategories.forEach((doc) => {
+      this.storeCategories.push(doc.data().name);
     });
   },
 
@@ -146,7 +150,7 @@ export default {
     async uploadImage() {
       const storageRef = firebase
         .storage()
-        .ref("store/" + this.newStoreItemModal.name)
+        .ref("store/" + this.newItem.name)
         .put(this.newItem.image);
 
       await storageRef.on(
@@ -174,6 +178,7 @@ export default {
           description: this.newItem.description,
           price: this.newItem.price,
           category: this.newItem.category,
+          imageUrl: url,
           isActive: true,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })

@@ -1,32 +1,6 @@
 <template>
   <div>
-    <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">Nome</th>
-            <th class="text-left">Imagem</th>
-            <th class="text-center">
-              <i class="fas fa-edit"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="partner in partners" :key="partner.name">
-            <td>{{ partner.name }}</td>
-            <th class="text-left">{{ partner.isActive ? "Sim" : "Não" }}</th>
-            <td class="text--darken-1" style="height: 130px; width: 130px">
-              <img :src="partner.imageUrl" alt="" />
-            </td>
-            <td class="text-center">
-              <v-btn color="primary" dark> Editar</v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
-
-    <v-row class="mt-2 ml-1">
+    <v-row class="mb-3 ml-1">
       <v-dialog v-model="newPartnerModal" persistent max-width="600px">
         <template v-slot:activator="{ on }">
           <v-btn color="success" dark v-on="on"> Adicionar novo </v-btn>
@@ -52,8 +26,10 @@
                     chips
                     small-chips
                     truncate-length="15"
-                    @change="previewImage"
+                    type="file"
                     accept="image/*"
+                    v-model="newPartner.image"
+                    @change="previewImage"
                   >
                     >
                   </v-file-input>
@@ -73,6 +49,35 @@
         </v-card>
       </v-dialog>
     </v-row>
+    <v-simple-table dense>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">Nome</th>
+            <th class="text-left">Mostrar?</th>
+            <th class="text-center">Imagem</th>
+            <th class="text-center">
+              <i class="fas fa-edit"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="partner in partners" :key="partner.name">
+            <td>{{ partner.name }}</td>
+            <th class="text-left">{{ partner.isActive ? "Sim" : "Não" }}</th>
+            <td
+              class="text--darken-1 text-center"
+              style="height: 60px; width: 60px"
+            >
+              <img :src="partner.imageUrl" alt="" />
+            </td>
+            <td class="text-center">
+              <v-btn color="primary" dark> Editar</v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
   </div>
 </template>
 
@@ -95,7 +100,6 @@ export default {
   },
 
   async mounted() {
-    console.log("montado");
     const doc = await db.collection("partners").get();
 
     doc.forEach((doc) => {
@@ -104,10 +108,14 @@ export default {
   },
 
   methods: {
+    previewImage(event, img) {
+      this.imageData = event.target.files[0];
+    },
+
     async uploadImage() {
       const storageRef = firebase
         .storage()
-        .ref("partners/" + this.newStoreItemModal.name)
+        .ref("partners/" + this.newPartner.name)
         .put(this.newPartner.image);
 
       await storageRef.on(
@@ -126,19 +134,17 @@ export default {
         }
       );
     },
-
     async saveToDatabase(url) {
       await db
         .collection("partners")
         .add({
           name: this.newPartner.name,
-          description: this.newPartner.description,
-          price: this.newPartner.price,
-          category: this.newPartner.category,
           isActive: true,
+          imageUrl: url,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
-        .then(() => this.$router.go());
+        .then(() => this.$router.go())
+        .catch((e) => console.log(e));
     },
 
     async saveWork() {
