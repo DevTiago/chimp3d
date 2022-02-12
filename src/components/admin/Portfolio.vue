@@ -5,6 +5,8 @@
         <template v-slot:activator="{ on }">
           <v-btn color="success" dark v-on="on"> Adicionar novo </v-btn>
         </template>
+
+
         <v-card>
           <v-card-title>
             <span class="text-h5">Novo trabalho</span>
@@ -41,9 +43,22 @@
                   </v-file-input>
                 </v-col>
               </v-row>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                    color="error"
+                    @click="newItemModal = false">
+                  Fechar
+                </v-btn>
+                <v-btn color="success" @click="saveWork">
+                  Guardar
+                </v-btn>
+              </v-card-actions>
             </v-container>
           </v-card-text>
         </v-card>
+
+
       </v-dialog>
     </v-row>
     <v-spacer></v-spacer>

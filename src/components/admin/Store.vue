@@ -62,13 +62,11 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              color="blue darken-1"
-              text
-              @click="newStoreItemModal = false"
-            >
+              color="error"
+              @click="newStoreItemModal = false">
               Fechar
             </v-btn>
-            <v-btn color="blue darken-1" text @click="saveWork">
+            <v-btn color="success" @click="saveWork">
               Guardar
             </v-btn>
           </v-card-actions>

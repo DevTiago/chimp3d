@@ -86,15 +86,15 @@ export default {
   margin-bottom: 20px;
 }
 
-.theme--light.v-label {
-  color: #f4f4f4 !important;
-}
+//.theme--light.v-label {
+//  color: #f4f4f4 !important;
+//}
 
 .v-input__slot {
   align-items: unset !important;
 }
 
-.theme--light.v-icon {
-  color: #f4f4f4;
-}
+//.theme--light.v-icon {
+//  color: #f4f4f4;
+//}
 </style>
