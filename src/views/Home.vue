@@ -131,12 +131,14 @@
 
 <script>
 import Header from "../components/header/Header";
-import Banner from "../components/slider/Banner";
+import Banner from "../components/index/Banner";
 // import PortfolioSix from ".ts/portfolio/PortfolioSix";
-import PortfolioTwo from "../components/portfolio/PortfolioTwo";
-import TeamFour from "../components/team/TeamFour";
-import ServiceThree from "../components/service/ServiceThree";
-import Brand from "../components/brand/Brand";
+import PortfolioTwo from "../components/index/PortfolioTwo";
+import TeamFour from "../components/index/TeamFour";
+/* import ServiceThree from "../components/index/ServiceThree"; */
+
+import ServiceThree from "../components/index/ServiceThree.vue";
+import Brand from "../components/index/Brand";
 import Footer from "../components/footer/Footer";
 
 export default {

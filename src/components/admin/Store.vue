@@ -61,14 +61,114 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-              color="error"
-              @click="newStoreItemModal = false">
+            <v-btn color="error" @click="newStoreItemModal = false">
               Fechar
             </v-btn>
-            <v-btn color="success" @click="saveWork">
+            <v-btn color="success" @click="saveWork"> Guardar </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="editItemModal" persistent max-width="600px">
+        <v-card>
+          <v-card-title>
+            <span class="text-h5">Editar Artigo</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    label="Nome"
+                    class="p-2"
+                    required
+                    v-model="editItem.name"
+                  ></v-text-field>
+                </v-col>
+
+                <v-col cols="12">
+                  <v-text-field
+                    label="Descrição"
+                    class="p-2"
+                    required
+                    v-model="editItem.description"
+                  ></v-text-field>
+                </v-col>
+
+                <v-col cols="12">
+                  <v-text-field
+                    label="Preço"
+                    class="p-2"
+                    required
+                    v-model="editItem.price"
+                  ></v-text-field>
+                </v-col>
+
+                <v-col class="d-flex" cols="12">
+                  <v-select
+                    :items="storeCategories"
+                    v-model="editItem.category"
+                    label="Categoria"
+                  ></v-select>
+                </v-col>
+
+                <v-col cols="12" class="my-5">
+                  <v-img
+                    :src="editItem.image_url"
+                    max-height="150"
+                    max-width="250"
+                  ></v-img>
+                </v-col>
+
+                <v-col cols="12">
+                  <v-checkbox
+                    v-model="editItem.isActive"
+                    :label="`Mostrar no site?`"
+                  ></v-checkbox>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="error darken-1" @click="editItemModal = false">
+              Fechar
+            </v-btn>
+            <v-btn color="success darken-1" @click="saveItemChanged">
               Guardar
             </v-btn>
+
+            <v-spacer></v-spacer>
+
+            <v-btn color="warning darken-1" @click="confirmationModal = true">
+              Apagar
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="confirmationModal" persistent max-width="600px">
+        <v-card>
+          <v-card-title>
+            <h3 class="text-h5">Tem a certeza?</h3>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12" class="p-0">
+                  <p>
+                    Esta operação é irreversível. Pretende apagar este artigo da
+                    loja?
+                  </p>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="error darken-1" @click="confirmationModal = false"
+              >Não</v-btn
+            >
+            <v-btn color="success darken-1" @click="deleteItem">Sim</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -89,7 +189,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in storeItems" :key="item.name">
+          <tr v-for="item in storeItems" :key="item.id">
             <td>{{ item.name }}</td>
             <td class="text--darken-1">{{ item.description }}</td>
             <th class="text-center">{{ item.category }}</th>
@@ -99,7 +199,9 @@
               <img :src="item.imageUrl" alt="" />
             </td>
             <td class="text-center">
-              <v-btn color="primary" dark> Editar</v-btn>
+              <v-btn color="primary" dark @click="itemEdit(item)">
+                Editar</v-btn
+              >
             </td>
           </tr>
         </tbody>
@@ -125,8 +227,20 @@ export default {
         image: "",
         image_url: "",
       },
+
+      editItem: {
+        id: "",
+        name: "",
+        description: "",
+        price: 0,
+        category: "",
+        isActive: false,
+      },
+      editItemModal: false,
       newStoreItemModal: false,
       storeCategories: [],
+      deleteItemId: "",
+      confirmationModal: false,
     };
   },
 
@@ -145,6 +259,10 @@ export default {
   },
 
   methods: {
+    previewImage() {
+      this.newItem.image = event.target.files[0];
+    },
+
     async uploadImage() {
       const storageRef = firebase
         .storage()
@@ -172,6 +290,7 @@ export default {
       await db
         .collection("store")
         .add({
+          id: new Date().getTime().toString(),
           name: this.newItem.name,
           description: this.newItem.description,
           price: this.newItem.price,
@@ -185,6 +304,53 @@ export default {
 
     async saveWork() {
       await this.uploadImage();
+    },
+
+    async itemEdit(item) {
+      this.editItem.id = item.id;
+      this.editItem.name = item.name;
+      this.editItem.description = item.description;
+      this.editItem.price = item.price;
+      this.editItem.category = item.category;
+      this.editItem.isActive = item.isActive;
+
+      this.editItemModal = true;
+    },
+
+    async saveItemChanged() {
+      let doc = await db
+        .collection("store")
+        .where("id", "==", this.editItem.id)
+        .get();
+
+      await db
+        .collection("store")
+        .doc(doc.docs[0].id)
+        .update({
+          name: this.editItem.name,
+          description: this.editItem.description,
+          price: this.editItem.price,
+          category: this.editItem.category,
+          isActive: this.editItem.isActive,
+        })
+        .then(() => this.$router.go())
+        .catch((e) => console.log(e));
+    },
+
+    async deleteItem() {
+      let doc = await db
+        .collection("store")
+        .where("id", "==", this.editItem.id)
+        .get();
+
+      await db
+        .collection("store")
+        .doc(doc.docs[0].id)
+        .delete()
+        .then(() => {
+          this.deleteItemId = "";
+          this.$router.go();
+        });
     },
   },
 };
