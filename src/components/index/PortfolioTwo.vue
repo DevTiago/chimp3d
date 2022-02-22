@@ -38,7 +38,11 @@ export default {
   },
 
   async created() {
-    const doc = await db.collection("portfolio").get();
+    const doc = await db.collection("portfolio")
+        .where('isActive', '==', true)
+        .get();
+
+
     doc.forEach((doc) => {
       this.portfolioContent.push(doc.data());
     });
@@ -52,6 +56,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  height: 280px
 }
 
 .thumbnail {

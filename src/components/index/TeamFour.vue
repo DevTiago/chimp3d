@@ -32,7 +32,12 @@ export default {
   components: {},
 
   async beforeMount() {
-    const doc = await db.collection("store").get();
+    const doc = await db.collection("store")
+        .where('isActive', '==', true)
+        .get();
+
+    console.log(doc.docs.length);
+
 
     doc.forEach((doc) => {
       this.store.push(doc.data());

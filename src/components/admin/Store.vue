@@ -245,7 +245,9 @@ export default {
   },
 
   async mounted() {
-    const doc = await db.collection("store").get();
+    const doc = await db
+        .collection("store")
+        .get();
 
     doc.forEach((doc) => {
       this.storeItems.push(doc.data());
