@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 import goTo from "vuetify/es5/services/goto";
 // import Missing from '../views/404.vue'
 // import Demo from '../views/Demo.vue'
-import Home from "../views/Home";
+import Home from "../views/Home"
+import Shop from "../views/Shop"
 import Contact from "../views/Contact.vue";
 import Admin from "../views/Admin";
 import Login from "../views/Login";
@@ -17,88 +18,95 @@ import Categories from "../components/admin/Categories.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "/",
-    component: Home,
-    meta: {
-      title: "Chimp3d - A tua loja 3D!",
+    {
+        path: "/",
+        component: Home,
+        meta: {
+            title: "Chimp3d - A tua loja 3D!",
+        },
     },
-  },
-  {
-    path: "/contact",
-    component: Contact,
-    meta: {
-      title: "Chimp3d - A tua loja 3D!",
+    {
+        path: "/contact",
+        component: Contact,
+        meta: {
+            title: "Chimp3d - A tua loja 3D!",
+        },
     },
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: Login,
-    meta: {
-      title: "Chimp3d Admin",
+    {
+        path: "/shop",
+        component: Shop,
+        meta: {
+            title: "Chimp3d - A tua loja 3D!",
+        },
     },
-  },
-  {
-    path: "/admin",
-    name: "admin",
-    component: Admin,
-    meta: {
-      title: "Chimp3d Admin",
-      requiresAuth: true,
+    {
+        path: "/login",
+        name: "login",
+        component: Login,
+        meta: {
+            title: "Chimp3d Admin",
+        },
     },
-    children: [
-      {
-        path: "portfolio",
-        name: "Portfolio",
-        component: Portfolio,
-      },
-      {
-        path: "categories",
-        name: "Categories",
-        component: Categories,
-      },
-      {
-        path: "store",
-        name: "Store",
-        component: Store,
-      },
-      {
-        path: "partners",
-        name: "Partners",
-        component: Partners,
-      },
-    ],
-  },
+    {
+        path: "/admin",
+        name: "admin",
+        component: Admin,
+        meta: {
+            title: "Chimp3d Admin",
+            requiresAuth: true,
+        },
+        children: [
+            {
+                path: "portfolio",
+                name: "Portfolio",
+                component: Portfolio,
+            },
+            {
+                path: "categories",
+                name: "Categories",
+                component: Categories,
+            },
+            {
+                path: "store",
+                name: "Store",
+                component: Store,
+            },
+            {
+                path: "partners",
+                name: "Partners",
+                component: Partners,
+            },
+        ],
+    },
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  routes,
-  scrollBehavior: (to, from, savedPosition) => {
-    let scrollTo = 0;
+    mode: "history",
+    routes,
+    scrollBehavior: (to, from, savedPosition) => {
+        let scrollTo = 0;
 
-    if (to.hash) {
-      scrollTo = to.hash;
-    } else if (savedPosition) {
-      scrollTo = savedPosition.y;
-    }
+        if (to.hash) {
+            scrollTo = to.hash;
+        } else if (savedPosition) {
+            scrollTo = savedPosition.y;
+        }
 
-    return goTo(scrollTo);
-  },
+        return goTo(scrollTo);
+    },
 });
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-  const isAuthenticated = firebase.auth().currentUser;
+    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+    const isAuthenticated = firebase.auth().currentUser;
 
-  if (requiresAuth && !isAuthenticated) {
-    next("/login");
-  } else if (isAuthenticated && to.name === "login") {
-    next("/admin");
-  } else {
-    next();
-  }
+    if (requiresAuth && !isAuthenticated) {
+        next("/login");
+    } else if (isAuthenticated && to.name === "login") {
+        next("/admin");
+    } else {
+        next();
+    }
 });
 
 export default router;
