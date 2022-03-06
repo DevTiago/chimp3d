@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-area footer-style-01 bg_color--6">
+  <footer class="footer-area footer-style-01 bg_color--6" id="contacts">
     <div class="footer-wrapper ptb--70">
       <v-container class="container">
         <v-row class="justify-space-around">

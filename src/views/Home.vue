@@ -38,7 +38,7 @@
     <!-- End Slider Area  -->
 
     <!-- Start Service Area  -->
-    <div class="service-area pb--120 bg_color--10 mt-5" id="service">
+    <div class="service-area pb--120 bg_color--10 mt-5" id="services">
       <div class="container">
         <v-row>
           <v-col lg="12">
@@ -54,7 +54,7 @@
 
     <!-- Start Portfolio Area -->
     <div class="portfolio-area pt--120 pb--140 bg_color--5">
-      <v-container>
+      <v-container id="portfolio">
         <v-row>
           <v-col lg="12">
             <div class="section-title text-center">
@@ -75,8 +75,8 @@
     <!-- End Portfolio Area -->
 
     <!-- Start team Area  -->
-    <div class="rn-team-wrapper pt--120 bg_color--1" id="team">
-      <v-container>
+    <div class="rn-team-wrapper pt--120 bg_color--1">
+      <v-container id="store">
         <v-row>
           <v-col lg="12">
             <div class="section-title mb--30 text-center">
@@ -99,7 +99,7 @@
           <router-link
             slot="button"
             class="btn-default btn-border btn-opacity"
-            to="/"
+            to="/shop"
             >Ver loja</router-link
           >
         </div>
@@ -109,7 +109,7 @@
 
     <!-- Start Brand Area -->
     <div class="rn-brand-area bg_color--1 ptb--120">
-      <v-container>
+      <v-container id="partners">
         <v-row>
           <v-col cols="12">
             <div class="section-title text-center mb--30">

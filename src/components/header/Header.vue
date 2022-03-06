@@ -38,10 +38,11 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto">
-        <v-btn :ripple="false" text>Serviços</v-btn>
-        <v-btn :ripple="false" text>Projectos</v-btn>
-        <v-btn :ripple="false" text>Parceiros</v-btn>
-        <v-btn :ripple="false" text>Contactos</v-btn>
+        <v-btn :ripple="false" text @click="goToServices">Serviços</v-btn>
+        <v-btn :ripple="false" text @click="goToProjects">Projectos</v-btn>
+        <v-btn :ripple="false" text @click="goToStore">Loja</v-btn>
+        <v-btn :ripple="false" text @click="goToPartners">Parceiros</v-btn>
+        <v-btn :ripple="false" text @click="goToContacts">Contactos</v-btn>
       </v-toolbar-items>
       <!-- End header menu item -->
       <router-link to="/contact" class="logo">
@@ -79,6 +80,26 @@ export default {
   methods: {
     iconSvg(icon) {
       return feather.icons[icon].toSvg();
+    },
+
+    goToServices() {
+      this.$router.push({ path: "/", hash: "#services" });
+    },
+
+    goToProjects() {
+      this.$router.push({ path: "/", hash: "#portfolio" });
+    },
+
+    goToStore() {
+      this.$router.push({ path: "/", hash: "#store" });
+    },
+
+    goToPartners() {
+      this.$router.push({ path: "/", hash: "#partners" });
+    },
+
+    goToContacts() {
+      this.$router.push({ path: "/", hash: "#contacts" });
     },
   },
 };
