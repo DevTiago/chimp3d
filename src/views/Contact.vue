@@ -25,6 +25,8 @@
 import Header from "../components/header/Header.vue";
 import Contact from "../components/contact/Contact.vue";
 import ServiceThree from "../components/index/ServiceThree";
+import emailjs from 'emailjs-com';
+
 
 import Footer from "../components/footer/Footer";
 

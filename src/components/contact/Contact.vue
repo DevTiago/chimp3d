@@ -11,45 +11,40 @@
         <div class="im_address mt--5">
           <span>ou pelo email:</span
           ><a class="link im-hover" href="mailto:3dshop@sapo.pt"
-            >3dshop@sapo.pt</a
-          >
+        >3dshop@sapo.pt</a
+        >
         </div>
       </div>
       <div class="form-wrapper">
-        <v-form ref="form" v-model="valid" lazy-validation>
+        <v-form ref="form" lazy-validation>
           <v-text-field
-            class="theme--dark"
-            v-model="name"
-            label="Nome"
-            required
-          >
+              class="theme--dark custom-label-color"
+              v-model="name"
+              label="Nome"
+              required>
           </v-text-field>
 
           <v-text-field
-            v-model="email"
-            class="theme--dark"
-            label="E-mail"
-            required
+              v-model="email"
+              class="theme--dark custom-label-color"
+              label="E-mail"
+              required
           ></v-text-field>
 
           <v-textarea
-            class="theme--dark"
-            name="input-2-1"
-            label="A sua mensagem:"
-            auto-grow
-            clearable
-            clear-icon="mdi-close-circle"
-            rows="3"
-            value=""
+              class="theme--dark custom-label-color"
+              label="A sua mensagem:"
+              v-model="message"
+              auto-grow
+              clearable
+              rows="3"
+              value=""
           ></v-textarea>
 
-          <v-checkbox
-            v-model="checkbox"
-            label="Do you agree?"
-            required
-          ></v-checkbox>
+          <p class="white--text" style="font-size: 14px"><small>Ao enviar mensagem está a concordar com a partilha dos seu dados com a Chimp3d</small></p>
 
-          <v-btn color="success" class="mr-4"> Enviar </v-btn>
+          <v-btn color="success" class="mr-4" @click="onSubmit"> Enviar</v-btn>
+          
         </v-form>
       </div>
     </div>
@@ -57,6 +52,9 @@
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
+
+
 export default {
   components: {},
   data() {
@@ -64,37 +62,50 @@ export default {
       formData: {
         name: "",
         email: "",
-        subject: "",
         message: "",
+        error: "",
+        success: ""
       },
     };
   },
   methods: {
     onSubmit() {
-      console.log(this.formData);
+      let templateParams = {
+        from_name: this.name,
+        from_email: this.email,
+        from_message: this.message
+      };
+
+      try {
+        emailjs.send('service_z5g6c9c', 'template_r37bz1f', templateParams, 'Kek1iJ6_ybUDku0-6');
+      } catch (e) {
+          this.error = "Não foi possível enviar a sua mensagem, por favor tente mais tarde ou contacte-nos através do +351 963241458 ou por email para 3dshop@sapo.pt"
+      }
+
+
+
     },
   },
 };
 </script>
 
-<style lang="scss">
+<style>
 .form-wrapper label input,
 .form-wrapper label textarea {
   margin-bottom: 0;
 }
+
 .form-wrapper label {
   margin-bottom: 20px;
 }
 
-//.theme--light.v-label {
-//  color: #f4f4f4 !important;
-//}
 
 .v-input__slot {
   align-items: unset !important;
 }
 
-//.theme--light.v-icon {
-//  color: #f4f4f4;
-//}
+.custom-label-color .v-label {
+  color: #fff
+}
+
 </style>

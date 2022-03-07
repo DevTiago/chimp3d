@@ -9,7 +9,7 @@
         <div
           class="col-3 col-lg-4 col-xl-3 filters white--text font-weight-bold"
         >
-          <!--  <h4>Categorias</h4> -->
+            <h5>Filtrar por:</h5>
           <v-checkbox
             v-for="(category, index) in this.categories"
             :value="category.name"
