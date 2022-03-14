@@ -44,7 +44,7 @@
           <p class="white--text" style="font-size: 14px"><small>Ao enviar mensagem está a concordar com a partilha dos seu dados com a Chimp3d</small></p>
 
           <v-btn color="success" class="mr-4" @click="onSubmit"> Enviar</v-btn>
-          
+
         </v-form>
       </div>
     </div>

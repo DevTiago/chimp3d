@@ -2,12 +2,12 @@
   <v-row class="service-main-wrapper">
     <!-- Start Single Service  -->
     <v-col
-      lg="4"
-      md="4"
-      sm="6"
-      cols="12"
-      v-for="(service, i) in serviceContent"
-      :key="i"
+        lg="4"
+        md="4"
+        sm="6"
+        cols="12"
+        v-for="(service, i) in serviceContent"
+        :key="i"
     >
       <div class="service service__style--2 text-left bg-gray">
         <div class="service">
@@ -29,6 +29,7 @@
 
 <script>
 import feather from "feather-icons";
+
 export default {
   data() {
     return {
@@ -36,38 +37,32 @@ export default {
         {
           icon: "printer",
           title: "Impressão 3D",
-          desc: ` I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
+          desc: `Impressão 3D ao alcance de todos. Para empresas e Hobistas.`,
         },
         {
           icon: "layers",
           title: "Modelação 3D",
-          desc: ` I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
-        },
-        {
-          icon: "aperture",
-          title: "Prototipagem",
-          desc: `I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
+          desc: `Tens uma ideia ou necessidade? Uma peça para imprimir? Nos fazemos o desenho.`,
         },
         {
           icon: "cpu",
           title: "Eletrónica",
-          desc: `I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
+          desc: `Juntamos a impressão 3D a projetos Maker. Desenvolvemos soluções: Arduino, Bluetooth, automação, Wifi, teclados, displays, RFID e led's`,
         },
         {
           icon: "star",
           title: "Merchandising",
-          desc: `I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
+          desc: `Porta-chaves, Brindes, emblemas, logótipos e "name tags"`,
         },
         {
           icon: "package",
           title: "Consumíveis",
-          desc: ` I throw myself down among the tall grass by the stream as I lie
-                close to the earth.`,
+          desc: `Filamento, PLA, PTEG, ABS, Spare parts. Visita a nossa loja`,
+        },
+        {
+          icon: "aperture",
+          title: "Quem nos procura?",
+          desc: `RC, Airsoft, Auto, Moto, Aquariofilia, Home, Indústria, etc.`,
         },
       ],
     };
